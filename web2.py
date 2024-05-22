@@ -18,7 +18,7 @@ x = datetime.datetime.now()
 ci = texte.text
 ca = ci.split("\n")
 #print(x.strftime("%d-%m-%Y\n"))
-ci_d = x.strftime("%d-%m-%Y\n")
+ci_d = x.strftime("%d-%m-%Y")
 print(ca[1])
 print(ca[0])
 print(ci_d)
@@ -29,6 +29,7 @@ with open("citation2.txt", "a+", encoding="utf-8") as file:
     file.write(ca[1])
     file.write("\n")
     file.write(ci_d)
+    file.write("\n")
     file.close()
 
 
