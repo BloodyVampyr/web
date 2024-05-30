@@ -11,9 +11,9 @@ texte = driver.find_element(By.XPATH, '/html/body/table[3]/tbody/tr[2]/td[2]/tab
 #texte = driver.find_element(By.PARTIAL_LINK_TEXT, '<td bgcolor="#FFFFFF" class="dBox1">«')
 auteur = driver.find_element(By.CLASS_NAME, 'cita')
 
-
-
-
+# ------------------------------------------
+# recherche + calcul
+#-------------------------------------------
 x = datetime.datetime.now()
 ci = texte.text
 ca = ci.split("\n")
@@ -23,6 +23,9 @@ print(ca[1])
 print(ca[0])
 print(ci_d)
 
+# ------------------------------------------
+# mettre fichier
+#-------------------------------------------
 with open("citation2.txt", "a+", encoding="utf-8") as file:
     file.write(ca[0])
     file.write("\n")
@@ -32,7 +35,9 @@ with open("citation2.txt", "a+", encoding="utf-8") as file:
     file.write("\n")
     file.close()
 
-
+# ------------------------------------------
+# mettre DB SQLite
+#-------------------------------------------
 conn = sqlite3.connect("citations.db")
 
 c = conn.cursor()
